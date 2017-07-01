@@ -9,4 +9,7 @@
     <motan:referer id="remoteService"
                    interface="io.github.ws89.demo.motan.service.ProviderService"
                    directUrl="localhost:8002"/>
+    <motan:referer id="remoteServiceAsync"
+                   interface="io.github.ws89.demo.motan.service.ProviderServiceAsync"
+                   directUrl="localhost:8002"/>
 </beans>
