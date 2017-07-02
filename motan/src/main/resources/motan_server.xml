@@ -8,5 +8,12 @@
     <!-- service implemention bean -->
     <bean id="serviceImpl" class="io.github.ws89.demo.motan.service.impl.ProviderServiceImpl" />
     <!-- exporting service by motan -->
-    <motan:service interface="io.github.ws89.demo.motan.service.ProviderService" ref="serviceImpl" export="8002" />
+    <!--
+        <motan:service interface="io.github.ws89.demo.motan.service.ProviderService" ref="serviceImpl" export="8002" />
+    -->
+
+    <motan:registry regProtocol="consul" name="my_consul" address="127.0.0.1:8500"/>
+
+    <motan:service interface="io.github.ws89.demo.motan.service.ProviderService" ref="serviceImpl" registry="my_consul" export="8002" />
+
 </beans>

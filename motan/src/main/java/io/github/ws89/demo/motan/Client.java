@@ -13,7 +13,23 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Client {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
+        //sync call
+//        syncCall();
+
+        // async call
+//        asyncCall();
+
+        // by consul
+        int i = 5;
+        while (i>0){
+            byConsul();
+            Thread.sleep(2000);
+            i--;
+        }
+    }
+
+    private static void syncCall(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:motan_client.xml");
 
         ProviderService providerService = (ProviderService) applicationContext.getBean("remoteService");
@@ -21,9 +37,6 @@ public class Client {
         System.out.println(providerService.hello("motan"));
 
         System.out.println("client call done.");
-
-        // async call
-        asyncCall();
     }
 
     private static void asyncCall(){
@@ -56,5 +69,15 @@ public class Client {
         ResponseFuture future4 = service.helloAsync("motan async multi-4");
         future3.addListener(listener);
         future4.addListener(listener);
+    }
+
+    private static void byConsul(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:motan_client.xml");
+
+        ProviderService providerService = (ProviderService) applicationContext.getBean("remoteServiceConsul");
+
+        System.out.println(providerService.hello("motan by consul"));
+
+        System.out.println("client call done.");
     }
 }
