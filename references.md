@@ -12,6 +12,8 @@ Consul also uses server nodes within a single datacenter. In each datacenter, Co
 
 https://www.consul.io/intro/getting-started/install.html
 
+https://www.consul.io/docs/internals/architecture.html
+
 https://www.consul.io/assets/images/consul-arch-420ce04a.png
 
 ---
