@@ -46,8 +46,6 @@ clientPort=2181
 
 > note: path can't have space code e.g. `D:\Program Files\zookeeper-3.4.10\user-define-data`
 
-
-
 ### start cmd
 
 ```
@@ -55,6 +53,52 @@ zkServer.cmd
 ```
 
 
+
+### Multiple servers on a single machine
+
+> D:\Program Files\zookeeper-cluster\zk-server-1\conf\zoo.cfg
+
+```
+# The number of milliseconds of each tick
+tickTime=2000
+
+# The number of ticks that the initial synchronization phase can take
+initLimit=10
+
+# The number of ticks that can pass between 
+# sending a request and getting an acknowledgement
+syncLimit=5
+
+# the directory where the snapshot is stored.
+# Choose appropriately for your environment
+dataDir=D:\\zkdata\\cluster\\zk1
+
+# the port at which the clients will connect
+clientPort=2181
+
+
+# ZooKeeper server and its port no.
+# ZooKeeper ensemble should know about every other machine in the ensemble
+# specify server id by creating 'myid' file in the dataDir
+# use hostname instead of IP address for convenient maintenance
+server.1=localhost:2888:3888
+server.2=localhost:2889:3889
+server.3=localhost:2890:3890
+```
+
+> D:\zkdata\cluster\zk1\myid
+
+```
+1
+```
+
+
+
+https://zookeeper.apache.org/doc/r3.3.2/zookeeperAdmin.html#sc_zkMulitServerSetup
+
+https://zookeeper.apache.org/doc/r3.1.2/zookeeperAdmin.html#sc_configuration
+
+https://myjeeva.com/zookeeper-cluster-setup.html
 
 
 
