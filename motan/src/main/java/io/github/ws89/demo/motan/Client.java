@@ -21,9 +21,17 @@ public class Client {
 //        asyncCall();
 
         // by consul
-        int i = 5;
+        /*int i = 5;
         while (i>0){
             byConsul();
+            Thread.sleep(2000);
+            i--;
+        }*/
+
+        // by zookeeper
+        int i = 5;
+        while (i>0){
+            byZookeeper();
             Thread.sleep(2000);
             i--;
         }
@@ -77,6 +85,16 @@ public class Client {
         ProviderService providerService = (ProviderService) applicationContext.getBean("remoteServiceConsul");
 
         System.out.println(providerService.hello("motan by consul"));
+
+        System.out.println("client call done.");
+    }
+
+    private static void byZookeeper(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:motan_client.xml");
+
+        ProviderService providerService = (ProviderService) applicationContext.getBean("remoteServiceZookeeper");
+
+        System.out.println(providerService.hello("motan by zookeeper"));
 
         System.out.println("client call done.");
     }

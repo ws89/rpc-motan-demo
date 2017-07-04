@@ -12,8 +12,20 @@
         <motan:service interface="io.github.ws89.demo.motan.service.ProviderService" ref="serviceImpl" export="8002" />
     -->
 
-    <motan:registry regProtocol="consul" name="my_consul" address="127.0.0.1:8500"/>
 
-    <motan:service interface="io.github.ws89.demo.motan.service.ProviderService" ref="serviceImpl" registry="my_consul" export="8002" />
+    <!-- consul
+    <motan:registry regProtocol="consul" name="my_consul" address="127.0.0.1:8500"/>
+    <motan:service interface="io.github.ws89.demo.motan.service.ProviderService"
+                   ref="serviceImpl"
+                   registry="my_consul" export="8002" />
+    -->
+
+    <!-- zookeeper -->
+    <motan:registry regProtocol="zookeeper"
+                    name="my_zookeeper"
+                    address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
+    <motan:service interface="io.github.ws89.demo.motan.service.ProviderService"
+                   ref="serviceImpl"
+                   registry="my_zookeeper" export="8002" />
 
 </beans>

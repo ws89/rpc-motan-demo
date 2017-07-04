@@ -39,6 +39,12 @@
             <version>RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-registry-zookeeper</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 
