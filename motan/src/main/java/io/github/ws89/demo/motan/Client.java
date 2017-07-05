@@ -21,20 +21,24 @@ public class Client {
 //        asyncCall();
 
         // by consul
-        /*int i = 5;
+        /**/
+        int i = 5;
         while (i>0){
             byConsul();
             Thread.sleep(2000);
             i--;
-        }*/
+        }
+
 
         // by zookeeper
-        int i = 5;
-        while (i>0){
+        /* */
+        int ii = 5;
+        while (ii>0){
             byZookeeper();
             Thread.sleep(2000);
-            i--;
+            ii--;
         }
+
     }
 
     private static void syncCall(){
