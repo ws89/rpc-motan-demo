@@ -15,30 +15,30 @@ public class Client {
 
     public static void main(String[] args) throws InterruptedException {
         //sync call
-//        syncCall();
+        syncCall();
 
         // async call
-//        asyncCall();
+        asyncCall();
 
         // by consul
-        /**/
+        /*
         int i = 5;
         while (i>0){
             byConsul();
             Thread.sleep(2000);
             i--;
         }
-
+        */
 
         // by zookeeper
-        /* */
+        /*
         int ii = 5;
         while (ii>0){
             byZookeeper();
             Thread.sleep(2000);
             ii--;
         }
-
+        */
     }
 
     private static void syncCall(){
@@ -46,7 +46,7 @@ public class Client {
 
         ProviderService providerService = (ProviderService) applicationContext.getBean("remoteService");
 
-        System.out.println(providerService.hello("motan"));
+        System.out.println(providerService.hello("motan async"));
 
         System.out.println("client call done.");
     }

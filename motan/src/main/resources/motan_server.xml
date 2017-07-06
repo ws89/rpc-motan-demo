@@ -2,30 +2,36 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:motan="http://api.weibo.com/schema/motan"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-   http://api.weibo.com/schema/motan http://api.weibo.com/schema/motan.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://api.weibo.com/schema/motan http://api.weibo.com/schema/motan.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-    <!-- service implemention bean -->
-    <bean id="serviceImpl" class="io.github.ws89.demo.motan.service.impl.ProviderServiceImpl" />
-    <!-- exporting service by motan -->
-    <!--
-        <motan:service interface="io.github.ws89.demo.motan.service.ProviderService" ref="serviceImpl" export="8002" />
-    -->
+        <context:component-scan base-package="io.github.ws89.demo.motan.service" />
+
+        <!-- service implemention bean -->
+        <!--<bean id="serviceImpl" class="io.github.ws89.demo.motan.service.impl.ProviderServiceImpl" />-->
+        <!-- exporting service by motan -->
+        <!-- -->
+        <motan:service interface="io.github.ws89.demo.motan.service.ProviderService" ref="ProviderServiceImpl" export="8002" />
 
 
-    <!-- consul -->
+
+    <!-- consul
     <motan:registry regProtocol="consul" name="my_consul" address="127.0.0.1:8500"/>
     <motan:service interface="io.github.ws89.demo.motan.service.ProviderService"
                    ref="serviceImpl"
                    registry="my_consul" export="8002" />
+    -->
 
-
-    <!-- zookeeper -->
+    <!-- zookeeper
     <motan:registry regProtocol="zookeeper"
                     name="my_zookeeper"
                     address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
     <motan:service interface="io.github.ws89.demo.motan.service.ProviderService"
                    ref="serviceImpl"
                    registry="my_zookeeper" export="8003" />
-
+    -->
 </beans>

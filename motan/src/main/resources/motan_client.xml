@@ -14,20 +14,20 @@
                    directUrl="localhost:8002"/>
 
 
-    <!-- consul -->
+    <!-- consul
     <motan:registry regProtocol="consul" name="my_consul" address="127.0.0.1:8500"/>
     <motan:referer id="remoteServiceConsul"
                    interface="io.github.ws89.demo.motan.service.ProviderService"
                    registry="my_consul"/>
+    -->
 
-
-    <!-- zookeeper -->
+    <!-- zookeeper
     <motan:registry regProtocol="zookeeper"
                     name="my_zookeeper"
                     address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
     <motan:referer id="remoteServiceZookeeper"
                    interface="io.github.ws89.demo.motan.service.ProviderService"
                    registry="my_zookeeper"/>
-
+    -->
 
 </beans>
